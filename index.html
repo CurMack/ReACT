@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Generalizable Diffusion Policy with Transferable Affordance for Robotic Manipulation.">
+        content="ReACT: Reactive Bimanual Robot Control via Action Chunking Transformer">
   <meta name="keywords" content="Diffusion Policy; Manipulation; Generalization">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <title>Nerfies: Deformable Neural Radiance Fields</title> -->
@@ -48,12 +48,15 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title"> 
-            <span style="background: -webkit-linear-gradient(left, rgb(227, 195, 209) , rgb(180, 199, 231)); -webkit-background-clip: text; color: transparent;">
-              AffordDP
-            </span>
-            : Generalizable Diffusion Policy 
+            <span style="background: -webkit-linear-gradient(left, rgb(91, 255, 206) , rgb(255, 66, 107)); -webkit-background-clip: text; color: transparent;">
+              ReACT
+            </span>: 
+              <span style="color: rgb(91, 255, 206);">Re</span><span>active</span> Bimanual Robot Control
             <br>
-            with Transferable Affordance
+            via 
+            <span style="color: rgb(255, 66, 107);">A</span><span>ction</span> 
+            <span style="color: rgb(255, 66, 107);">C</span></span><span>hunking</span> 
+            <span style="color: rgb(255, 66, 107);">T</span></span><span>ransformer</span>
           </h1>
 
           </div>
@@ -73,19 +76,24 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Diffusion-based policies have shown impressive performance in robotic manipulation tasks while struggling with out-of-domain distributions. 
-            Recent efforts attempted to enhance generalization by improving the visual feature encoding for diffusion policy. 
-            However, their generalization is typically limited to the same category with similar appearances.
-          </p>
-
-          <p>
-            Our key insight is that leveraging affordances—manipulation priors that define "where" and "how" an agent interacts with an object—can substantially enhance generalization to entirely unseen object instances and categories. 
-            We introduce the Diffusion Policy with transferable Affordance (<span class="dnerf">AffordDP</span>), designed for generalizable manipulation across novel categories. 
-            <span class="dnerf">AffordDP</span> models affordances through 3D contact points and post-contact trajectories, capturing the essential static and dynamic information for complex tasks. 
-            The transferable affordance from in-domain data to unseen objects is achieved by estimating a 6D transformation matrix using foundational vision models and point cloud registration techniques. 
-            More importantly, we incorporate affordance guidance during diffusion sampling that can refine action sequence generation. 
-            This guidance directs the generated action to gradually move towards the desired manipulation for unseen objects while keeping the generated action within the manifold of action space. 
-            Experimental results from both simulated and real-world environments demonstrate that <span class="dnerf">AffordDP</span> consistently outperforms previous diffusion-based methods, successfully generalizing to unseen instances and categories where others fail. 
+            Generating effective and context-aware reactions
+            for robot manipulation tasks remains challenging, particularly
+            in bimanual operations requiring precise coordination. This
+            project presents a low-cost teleoperation system leveraging
+            ALOHA (A Low-cost Open-source Hardware Architecture),
+            which allows an operator to teleoperate one robot arm while
+            training another to autonomously generate complementary
+            reactions. Our approach employs Action Chunking with Trans
+            formers (ACT), a novel learning framework designed for high-
+            frequency, fine-grained manipulation tasks. ACT encodes hu
+            man demonstration sequences into temporally cohesive chunks,
+            mitigating compounding errors common in imitation learning,
+            while ensuring smooth and precise motions. Using our system,
+            we successfully train one robot arm to react autonomously in
+            real-world tasks, such as collaborative bimanual assembly and
+            object handling, with high accuracy. This work highlights the
+            potential of combining low-cost hardware and advanced learn
+            ing algorithms to democratize high-precision robotic systems.
           </p>
         </div>
       </div>
@@ -136,7 +144,7 @@
 </section>
 
 <div class="container is-max-desktop">
-  <h2 class="title is-3 border-b-1px mb-4">Simulation Results</h2>
+  <h2 class="title is-3 border-b-1px mb-4">Bimanual Teleoperation</h2>
   <br>
   <section class="hero is-light is-small">
     <div class="hero-body">    
@@ -248,11 +256,11 @@
 </div>
 
 <div class="container is-max-desktop">
-  <h2 class="title is-3 border-b-1px mb-4" >Real world Results</h2>
+  <h2 class="title is-3 border-b-1px mb-4" >Single Arm Reaction</h2>
   <br>
   <div class="columns is-centered">
     <!-- <div class="column is-full-width"> -->
-      <h3 class="title is-4">Open Door </h3>
+      <h3 class="title is-4">Plate Placing </h3>
     <!-- </div> -->
   </div>
 
@@ -297,98 +305,7 @@
 </div>
 
 
-<div class="container is-max-desktop">
-  <div class="columns is-centered">
-    <!-- <div class="column is-full-width"> -->
-      <h3 class="title is-4">Pull Drawer </h3>
-    <!-- </div> -->
-  </div>
 
-  <section class="hero is-light is-small">
-    <div class="hero-body">    
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/OpenDrawer/cabinet_3.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/OpenDrawer/cabinet_5.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-shiba">
-            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/OpenDrawer/cabinet_6.mp4"
-                      type="video/mp4">
-            </video>
-            <div class="video-speed">1x</div>
-          </div>
-          <div class="item item-fullbody">
-            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/OpenDrawer/cabinet_7.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <p>
-      We designate novel objects to grasp using <b>open-ended language queries</b>, and achieve
-      this using only ten demonstrations across four object categories.
-    </p> -->
-  </section>
-</div>
-
-<br>
-<div class="container is-max-desktop">
-  <div class="columns is-centered">
-    <!-- <div class="column is-full-width"> -->
-      <h3 class="title is-4">Pick and Place </h3>
-    <!-- </div> -->
-  </div>
-
-  <section class="hero is-light is-small">
-    <div class="hero-body">    
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/PickUp/cup_1.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/PickUp/cup_2.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-shiba">
-            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/PickUp/cup_3.mp4"
-                      type="video/mp4">
-            </video>
-            <div class="video-speed">1x</div>
-          </div>
-          <div class="item item-fullbody">
-            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/PickUp/cup_4.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <p>
-      We designate novel objects to grasp using <b>open-ended language queries</b>, and achieve
-      this using only ten demonstrations across four object categories.
-    </p> -->
-  </section>
-</div>
 <br>
 
 <div class="container is-max-desktop">
@@ -584,8 +501,8 @@
 
 
 <div class="container is-max-desktop">
-  <h2 class="title is-3 border-b-1px mb-4" style="text-align: justify">Comparison with Baselines</h2>
-  <br>
+  <h2 class="title is-3 border-b-1px mb-4" style="text-align: justify">Failure Cases</h2>
+  <!-- <br>
   <div class="columns is-centered has-text-centered">
       <div class="content has-text-justified" style="text-align: justify">
         <p>
@@ -593,7 +510,7 @@
           Here are some sample comparative videos: 
         </p>
     </div>
-  </div>
+  </div> -->
   <br>
   <div class="columns is-centered">
     <h3 class="title is-4" style="margin-bottom: 0rem;"> Unseen instances manipulation in simulation</h3>
