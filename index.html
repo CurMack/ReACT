@@ -56,7 +56,8 @@
             via 
             <span style="color: rgb(255, 66, 107);">A</span><span>ction</span> 
             <span style="color: rgb(255, 66, 107);">C</span></span><span>hunking</span> 
-            <span style="color: rgb(255, 66, 107);">T</span></span><span>ransformer</span>
+            with
+            <span style="color: rgb(255, 66, 107);">T</span></span><span>ransformers</span>
           </h1>
 
           </div>
@@ -83,8 +84,8 @@
             ALOHA (A Low-cost Open-source Hardware Architecture),
             which allows an operator to teleoperate one robot arm while
             training another to autonomously generate complementary
-            reactions. Our approach employs Action Chunking with Trans
-            formers (ACT), a novel learning framework designed for high-
+            reactions. Our approach employs Action Chunking with Transformers (ACT), 
+            a learning framework designed for high-
             frequency, fine-grained manipulation tasks. ACT encodes hu
             man demonstration sequences into temporally cohesive chunks,
             mitigating compounding errors common in imitation learning,
@@ -92,8 +93,8 @@
             we successfully train one robot arm to react autonomously in
             real-world tasks, such as collaborative bimanual assembly and
             object handling, with high accuracy. This work highlights the
-            potential of combining low-cost hardware and advanced learn
-            ing algorithms to democratize high-precision robotic systems.
+            potential of combining low-cost hardware and advanced learning
+            algorithms to democratize high-precision robotic systems.
           </p>
         </div>
       </div>
@@ -134,8 +135,12 @@
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
           <p>
-            Given the target scene RGB-D image,<span class="dnerf">AffordDP</span> retrieves a similar object in the affordance memory and transfers its static and dynamic affordance to the target object. 
-            Conditioned on 3D affordance, point cloud observation, and robot proprioception, <span class="dnerf">AffordDP</span> utilizes the Diffusion Policy and adaptive affordance guidance for precise control.
+            Architecture of ReACT. The diagram illustrates the encoder-decoder structure of ReACT, where the encoder compresses the input action sequences
+            and joint observations into a latent space. This latent space captures the essence of the input data, allowing the model to
+            learn a probabilistic distribution over the actions. The decoder then synthesizes the output actions and images from the latent space, joint positions, and
+            camera embeddings, enabling the system to generate coordinated movements and reactions based on the input observations. The use of transformers in
+            both the encoder and decoder allows ReACT to handle sequential data effectively, capturing long-range dependencies and contextual relationships in the
+            action sequences. During the test time, the encoder will be discarded and the latent space is simply set to the mean of the prior.
           </p>
         </div>
       </div>
@@ -341,7 +346,7 @@
           </div>
           <div class="item item-chair-tp">
             <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/ReACT/gener_1.mp4"
+              <source src="./static/videos/ReACT/gener_9.mp4"
                       type="video/mp4">
             </video>
           </div>
@@ -354,7 +359,7 @@
           </div>
           <div class="item item-fullbody">
             <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/ReACT/gener_9.mp4"
+              <source src="./static/videos/ReACT/gener_1.mp4"
                       type="video/mp4">
             </video>
           </div>
